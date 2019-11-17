@@ -1,0 +1,45 @@
+name: openwrt
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install build dependencies
+      run: |
+        sudo apt-get update
+        #sudo apt-get full-upgrade -y
+        sudo apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-7 gcc++-7 gcc-7-multilib g++-7-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
+    - name: Clone source
+      run: |
+        cd /home/runner
+        git clone https://github.com/zxlhhyccc/openwrt.git
+        sudo chmod -R 777 openwrt
+        sudo chown -R runner:runner openwrt
+        cd /home/runner/openwrt
+        ./scripts/feeds update -a 
+        rm -rf /home/runner/openwrt/feeds/packages/net/frp
+        ./scripts/feeds install -a
+    - name: Clone config
+      run: |
+        cd /home/runner/openwrt
+        git clone https://github.com/zxlhhyccc/build-openwrt.git
+        rm -rf /home/runner/openwrt/build-openwrt/.git /home/runner/openwrt/build-openwrt/.github
+        cp -fpR /home/runner/openwrt/build-openwrt/. /home/runner/openwrt/
+        rm -rf /home/runner/openwrt/build-openwrt
+        sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3|' target/linux/bcm53xx/image/Makefile
+    - name: Build
+      run: | 
+        cd /home/runner/openwrt
+        make dirclean  -j1 V=s
+        make -j17 V=s
+    - uses: actions/upload-artifact@master
+      with:
+        name: result
+        path: /home/runner/openwrt/bin
