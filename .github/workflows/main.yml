@@ -29,10 +29,10 @@ jobs:
     - name: Clone config
       run: |
         cd /home/runner/openwrt
-        git clone https://github.com/zxlhhyccc/build-openwrt.git
-        rm -rf /home/runner/openwrt/build-openwrt/.git /home/runner/openwrt/build-openwrt/.github
-        cp -fpR /home/runner/openwrt/build-openwrt/. /home/runner/openwrt/
-        rm -rf /home/runner/openwrt/build-openwrt
+        git clone https://github.com/zxlhhyccc/build-openwrt1.git
+        rm -rf /home/runner/openwrt/build-openwrt1/.git /home/runner/openwrt/build-openwrt1/.github
+        cp -fpR /home/runner/openwrt/build-openwrt1/. /home/runner/openwrt/
+        rm -rf /home/runner/openwrt/build-openwrt1
         sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3|' target/linux/bcm53xx/image/Makefile
     - name: Build
       run: | 
