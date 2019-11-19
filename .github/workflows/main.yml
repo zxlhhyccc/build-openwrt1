@@ -41,6 +41,7 @@ jobs:
         svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/ctcgfw /home/runner/openwrt/pcakage/ctcgfw
         svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lienol /home/runner/openwrt/pcakage/lienol
         svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/zxlhhyccc /home/runner/openwrt/pcakage/zxlhhyccc
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/mtk /home/runner/openwrt/pcakage/mtk
         rm -rf /home/runner/openwrt/package/zxlhhyccc/luci-app-k3usb
         rm -rf /home/runner/openwrt/package/zxlhhyccc/phicomm-k3screenctrl
         rm -rf /home/runner/openwrt/package/zxlhhyccc/verysync
