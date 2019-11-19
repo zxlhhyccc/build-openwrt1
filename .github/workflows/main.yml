@@ -18,69 +18,69 @@ jobs:
         sudo apt-get install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-7 gcc++-7 gcc-7-multilib g++-7-multilib p7zip p7zip-full msmtp libssl-dev texinfo libreadline-dev libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint ccache curl wget vim nano python python3 python-pip python3-pip python-ply python3-ply haveged lrzsz device-tree-compiler
     - name: Clone source
       run: |
-        cd /home/lin
+        cd /home/runner
         git clone https://github.com/openwrt/openwrt.git
         sudo chmod -R 777 openwrt
-        sudo chown -R lin:lin openwrt
-        cd /home/lin/openwrt
-        rm -rf /home/lin/openwrt/package/network/config/firewall
-        rm -rf /home/lin/openwrt/package/network/services/uhttpd
-        rm -rf /home/lin/openwrt/package/network/utils/iproute2
-        rm -rf /home/lin/openwrt/package/network/utils/iptables
+        sudo chown -R runner:runner openwrt
+        cd /home/runner/openwrt
+        rm -rf /home/runner/openwrt/package/network/config/firewall
+        rm -rf /home/runner/openwrt/package/network/services/uhttpd
+        rm -rf /home/runner/openwrt/package/network/utils/iproute2
+        rm -rf /home/runner/openwrt/package/network/utils/iptables
         git clone https://github.com/zxlhhyccc/my-package.git package/my-package
-        cp -fpR /home/lin/openwrt/package/my-package/firewall /home/lin/openwrt/package/network/config/
-        cp -fpR /home/lin/openwrt/package/my-package/uhttpd /home/lin/openwrt/package/network/services/
-        cp -fpR /home/lin/openwrt/package/my-package/iproute2 /home/lin/openwrt/package/network/utils/
-        cp -fpR /home/lin/openwrt/package/my-package/iptables /home/lin/openwrt/package/network/utils/
-        rm -rf /home/lin/openwrt/package/my-package/firewall
-        rm -rf /home/lin/openwrt/package/my-package/uhttpd
-        rm -rf /home/lin/openwrt/package/my-package/iproute2
-        rm -rf /home/lin/openwrt/package/my-package/iptables
-        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/jsda /home/lin/openwrt/pcakage/jsda
-        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lean /home/lin/openwrt/pcakage/lean
-        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/ctcgfw /home/lin/openwrt/pcakage/ctcgfw
-        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lienol /home/lin/openwrt/pcakage/lienol
-        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/zxlhhyccc /home/lin/openwrt/pcakage/zxlhhyccc
-        rm -rf /home/lin/openwrt/package/zxlhhyccc/luci-app-k3usb
-        rm -rf /home/lin/openwrt/package/zxlhhyccc/phicomm-k3screenctrl
-        rm -rf /home/lin/openwrt/package/zxlhhyccc/verysync
-        rm -rf /home/lin/openwrt/package/zxlhhyccc/pfring
-        rm -rf /home/lin/openwrt/package/jsda/gargoyle-firewall-util
-        rm -rf /home/lin/openwrt/package/jsda/luci-app-qos-gargoyle
-        rm -rf /home/lin/openwrt/package/jsda/qos-gargoyle
-        rm -rf /home/lin/openwrt/package/jsda/luci-app-qosv4
-        rm -rf /home/lin/openwrt/package/lean/luci-app-dnspod
-        rm -rf /home/lin/openwrt/package/lean/luci-app-flowoffload
-        rm -rf /home/lin/openwrt/package/lean/luci-app-frpc
-        rm -rf /home/lin/openwrt/package/lean/luci-app-guest-wifi
-        rm -rf /home/lin/openwrt/package/lean/pdnsd-alt
-        rm -rf /home/lin/openwrt/package/lean/luci-app-ssr-plus
-        rm -rf /home/lin/openwrt/package/lean/k3-brcmfmac4366c-firmware
-        rm -rf /home/lin/openwrt/package/lean/frpc
-        rm -rf /home/lin/openwrt/package/lean/kcptun
-        rm -rf /home/lin/openwrt/package/lean/v2ray
-        rm -rf /home/lin/openwrt/package/lean/libcryptopp
-        rm -rf /home/lin/openwrt/package/ctcgfw/luci-app-k3screenctrl
+        cp -fpR /home/runner/openwrt/package/my-package/firewall /home/runner/openwrt/package/network/config/
+        cp -fpR /home/runner/openwrt/package/my-package/uhttpd /home/runner/openwrt/package/network/services/
+        cp -fpR /home/runner/openwrt/package/my-package/iproute2 /home/runner/openwrt/package/network/utils/
+        cp -fpR /home/runner/openwrt/package/my-package/iptables /home/runner/openwrt/package/network/utils/
+        rm -rf /home/runner/openwrt/package/my-package/firewall
+        rm -rf /home/runner/openwrt/package/my-package/uhttpd
+        rm -rf /home/runner/openwrt/package/my-package/iproute2
+        rm -rf /home/runner/openwrt/package/my-package/iptables
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/jsda /home/runner/openwrt/pcakage/jsda
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lean /home/runner/openwrt/pcakage/lean
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/ctcgfw /home/runner/openwrt/pcakage/ctcgfw
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lienol /home/runner/openwrt/pcakage/lienol
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/zxlhhyccc /home/runner/openwrt/pcakage/zxlhhyccc
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/luci-app-k3usb
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/phicomm-k3screenctrl
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/verysync
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/pfring
+        rm -rf /home/runner/openwrt/package/jsda/gargoyle-firewall-util
+        rm -rf /home/runner/openwrt/package/jsda/luci-app-qos-gargoyle
+        rm -rf /home/runner/openwrt/package/jsda/qos-gargoyle
+        rm -rf /home/runner/openwrt/package/jsda/luci-app-qosv4
+        rm -rf /home/runner/openwrt/package/lean/luci-app-dnspod
+        rm -rf /home/runner/openwrt/package/lean/luci-app-flowoffload
+        rm -rf /home/runner/openwrt/package/lean/luci-app-frpc
+        rm -rf /home/runner/openwrt/package/lean/luci-app-guest-wifi
+        rm -rf /home/runner/openwrt/package/lean/pdnsd-alt
+        rm -rf /home/runner/openwrt/package/lean/luci-app-ssr-plus
+        rm -rf /home/runner/openwrt/package/lean/k3-brcmfmac4366c-firmware
+        rm -rf /home/runner/openwrt/package/lean/frpc
+        rm -rf /home/runner/openwrt/package/lean/kcptun
+        rm -rf /home/runner/openwrt/package/lean/v2ray
+        rm -rf /home/runner/openwrt/package/lean/libcryptopp
+        rm -rf /home/runner/openwrt/package/ctcgfw/luci-app-k3screenctrl
         ./scripts/feeds update -a 
-        rm -rf /home/lin/openwrt/feeds/packages/net/frp
-        rm -rf /home/lin/openwrt/feeds/luci/applications/luci-app-aria2
-        cp -fpR /home/lin/openwrt/package/my-package/luci-app-aria2 /home/lin/openwrt/feeds/luci/applications/
-        rm -rf /home/lin/openwrt/package/my-package/luci-app-aria2
+        rm -rf /home/runner/openwrt/feeds/packages/net/frp
+        rm -rf /home/runner/openwrt/feeds/luci/applications/luci-app-aria2
+        cp -fpR /home/runner/openwrt/package/my-package/luci-app-aria2 /home/runner/openwrt/feeds/luci/applications/
+        rm -rf /home/runner/openwrt/package/my-package/luci-app-aria2
         ./scripts/feeds install -a
     - name: Clone config
       run: |
-        cd /home/lin/openwrt
+        cd /home/runner/openwrt
         git clone https://github.com/zxlhhyccc/build-openwrt1.git
-        rm -rf /home/lin/openwrt/build-openwrt1/.git /home/lin/openwrt/build-openwrt1/.github
-        cp -fpR /home/lin/openwrt/build-openwrt1/. /home/lin/openwrt/
-        rm -rf /home/lin/openwrt/build-openwrt1
+        rm -rf /home/runner/openwrt/build-openwrt1/.git /home/runner/openwrt/build-openwrt1/.github
+        cp -fpR /home/runner/openwrt/build-openwrt1/. /home/runner/openwrt/
+        rm -rf /home/runner/openwrt/build-openwrt1
         sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3|' target/linux/bcm53xx/image/Makefile
     - name: Build
       run: | 
-        cd /home/lin/openwrt
+        cd /home/runner/openwrt
         make dirclean -j1 V=s
         make -j8 V=s
     - uses: actions/upload-artifact@master
       with:
         name: result
-        path: /home/lin/openwrt/bin
+        path: /home/runner/openwrt/bin
