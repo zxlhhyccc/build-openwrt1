@@ -36,14 +36,15 @@ jobs:
         rm -rf /home/runner/openwrt/package/my-package/uhttpd
         rm -rf /home/runner/openwrt/package/my-package/iproute2
         rm -rf /home/runner/openwrt/package/my-package/iptables
-        svn co https://github.com/project-openwrt/openwrt/trunk/package/jsda/ /home/runner/openwrt/pcakage/jsda/
-        svn co https://github.com/project-openwrt/openwrt/trunk/package/lean/ /home/runner/openwrt/pcakage/lean/
-        svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/ /home/runner/openwrt/pcakage/ctcgfw/
-        svn co https://github.com/project-openwrt/openwrt/trunk/package/lienol/ /home/runner/openwrt/pcakage/lienol/
-        svn co https://github.com/project-openwrt/openwrt/trunk/package/zxlhhyccc/ /home/runner/openwrt/pcakage/zxlhhyccc/
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/jsda/ /home/runner/openwrt/pcakage/jsda/
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lean/ /home/runner/openwrt/pcakage/lean/
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/ctcgfw/ /home/runner/openwrt/pcakage/ctcgfw/
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lienol/ /home/runner/openwrt/pcakage/lienol/
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/zxlhhyccc/ /home/runner/openwrt/pcakage/zxlhhyccc/
         rm -rf /home/runner/openwrt/package/zxlhhyccc/luci-app-k3usb
         rm -rf /home/runner/openwrt/package/zxlhhyccc/phicomm-k3screenctrl
         rm -rf /home/runner/openwrt/package/zxlhhyccc/verysync
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/pfring
         rm -rf /home/runner/openwrt/package/jsda/gargoyle-firewall-util
         rm -rf /home/runner/openwrt/package/jsda/luci-app-qos-gargoyle
         rm -rf /home/runner/openwrt/package/jsda/qos-gargoyle
