@@ -19,7 +19,7 @@ jobs:
     - name: Clone source
       run: |
         cd /home/runner
-        git clone https://github.com/zxlhhyccc/openwrt.git
+        git clone https://github.com/zxlhhyccc/openwrt-git openwrt
         sudo chmod -R 777 openwrt
         sudo chown -R runner:runner openwrt
         cd /home/runner/openwrt
