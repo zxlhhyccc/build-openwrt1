@@ -23,12 +23,8 @@ jobs:
         sudo chmod -R 777 openwrt
         sudo chown -R runner:runner openwrt
         cd /home/runner/openwrt
-        git clone https://github.com/zxlhhyccc/my-package.git
         ./scripts/feeds update -a
         rm -rf /home/runner/openwrt/feeds/packages/net/frp
-        rm -rf /home/runner/openwrt/feeds/luci/applications/luci-app-aria2
-        cp -fpR /home/runner/openwrt/my-package/luci-app-aria2 /home/runner/openwrt/feeds/luci/applications/
-        rm -rf /home/runner/openwrt/my-package
         ./scripts/feeds install -a
     - name: Clone config
       run: |
@@ -41,6 +37,7 @@ jobs:
     - name: Build
       run: | 
         cd /home/runner/openwrt
+        make clean -j1 V=s
         make -j8 V=s
     - uses: actions/upload-artifact@master
       with:
