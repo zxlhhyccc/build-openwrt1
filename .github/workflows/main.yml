@@ -62,6 +62,7 @@ jobs:
         rm -rf /home/runner/openwrt/package/ctcgfw/luci-app-k3screenctrl
         ./scripts/feeds update -a 
         rm -rf /home/runner/openwrt/feeds/packages/net/frp
+        rm -rf /home/runner/openwrt/feeds/packages/net/kcptun
         rm -rf /home/runner/openwrt/feeds/luci/applications/luci-app-aria2
         cp -fpR /home/runner/openwrt/package/my-package/luci-app-aria2 /home/runner/openwrt/feeds/luci/applications/
         rm -rf /home/runner/openwrt/package/my-package/luci-app-aria2
