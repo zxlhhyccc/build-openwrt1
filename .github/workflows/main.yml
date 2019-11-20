@@ -19,12 +19,52 @@ jobs:
     - name: Clone source
       run: |
         cd /home/runner
-        git clone https://github.com/zxlhhyccc/openwrt-git openwrt
+        git clone https://github.com/openwrt/openwrt.git
         sudo chmod -R 777 openwrt
         sudo chown -R runner:runner openwrt
         cd /home/runner/openwrt
-        ./scripts/feeds update -a
+        rm -rf /home/runner/openwrt/package/network/config/firewall
+        rm -rf /home/runner/openwrt/package/network/services/uhttpd
+        rm -rf /home/runner/openwrt/package/network/utils/iproute2
+        git clone https://github.com/zxlhhyccc/my-package.git package/my-package
+        cp -fpR /home/runner/openwrt/package/my-package/firewall /home/runner/openwrt/package/network/config/
+        cp -fpR /home/runner/openwrt/package/my-package/uhttpd /home/runner/openwrt/package/network/services/
+        cp -fpR /home/runner/openwrt/package/my-package/iproute2 /home/runner/openwrt/package/network/utils/
+        rm -rf /home/runner/openwrt/package/my-package/firewall
+        rm -rf /home/runner/openwrt/package/my-package/uhttpd
+        rm -rf /home/runner/openwrt/package/my-package/iproute2
+        rm -rf /home/runner/openwrt/package/my-package/iptables
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/jsda /home/runner/openwrt/pcakage/jsda
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lean /home/runner/openwrt/pcakage/lean
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/ctcgfw /home/runner/openwrt/pcakage/ctcgfw
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/lienol /home/runner/openwrt/pcakage/lienol
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/zxlhhyccc /home/runner/openwrt/pcakage/zxlhhyccc
+        svn co https://github.com/zxlhhyccc/openwrt-1/trunk/package/mtk /home/runner/openwrt/pcakage/mtk
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/luci-app-k3usb
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/phicomm-k3screenctrl
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/verysync
+        rm -rf /home/runner/openwrt/package/zxlhhyccc/pfring
+        rm -rf /home/runner/openwrt/package/jsda/gargoyle-firewall-util
+        rm -rf /home/runner/openwrt/package/jsda/luci-app-qos-gargoyle
+        rm -rf /home/runner/openwrt/package/jsda/qos-gargoyle
+        rm -rf /home/runner/openwrt/package/jsda/luci-app-qosv4
+        rm -rf /home/runner/openwrt/package/lean/luci-app-dnspod
+        rm -rf /home/runner/openwrt/package/lean/luci-app-flowoffload
+        rm -rf /home/runner/openwrt/package/lean/luci-app-frpc
+        rm -rf /home/runner/openwrt/package/lean/luci-app-guest-wifi
+        rm -rf /home/runner/openwrt/package/lean/pdnsd-alt
+        rm -rf /home/runner/openwrt/package/lean/luci-app-ssr-plus
+        rm -rf /home/runner/openwrt/package/lean/k3-brcmfmac4366c-firmware
+        rm -rf /home/runner/openwrt/package/lean/frpc
+        rm -rf /home/runner/openwrt/package/lean/kcptun
+        rm -rf /home/runner/openwrt/package/lean/v2ray
+        rm -rf /home/runner/openwrt/package/lean/libcryptopp
+        rm -rf /home/runner/openwrt/package/ctcgfw/luci-app-k3screenctrl
+        ./scripts/feeds update -a 
         rm -rf /home/runner/openwrt/feeds/packages/net/frp
+        rm -rf /home/runner/openwrt/feeds/luci/applications/luci-app-aria2
+        cp -fpR /home/runner/openwrt/package/my-package/luci-app-aria2 /home/runner/openwrt/feeds/luci/applications/
+        rm -rf /home/runner/openwrt/package/my-package/luci-app-aria2
         ./scripts/feeds install -a
     - name: Clone config
       run: |
