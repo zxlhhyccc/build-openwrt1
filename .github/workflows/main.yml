@@ -38,7 +38,7 @@ jobs:
       run: | 
         cd /home/runner/openwrt
         make clean -j1 V=s
-        make -j8 V=s
+        make -j1 V=99 2>&1 ; echo -e '\a'
     - uses: actions/upload-artifact@master
       with:
         name: result
